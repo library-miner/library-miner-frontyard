@@ -1,0 +1,58 @@
+// base
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  font-family: 'Open Sans','Helvetica Neue', Helvetica, 'Arial', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+  font-size: 13px;
+}
+p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, 'Arial', '游ゴシック', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+  font-size: 13px;
+}
+
+.mt-5 { margin-top: 5px; }
+.mt-10 { margin-top: 10px; }
+.mt-15 { margin-top: 15px; }
+.mt-20 { margin-top: 20px; }
+
+.mb-5 { margin-bottom: 5px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
+
+
+// navbar
+.navbar-logo {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 18px;
+    color: #EEE;
+  }
+}
+
+// footer
+.normal-footer{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #2a2730;
+  margin-top: 20px;
+  color: #99979c;
+}
+.normal-footer a {
+  color: #FAFAFA;
+}
+.normal-footer .footer-copyright {
+}
+.normal-footer .list-unstyled {
+  list-style: none;
+}
+
+// main page
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <title>Library Miner | プロジェクト ライブラリ検索サービス</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="LibraryMiner, Miner, ライブラリ検索">
+    <meta name="description" content="LibraryMinerは、指定したライブラリを利用しているライブラリを検索できるWebサービスです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+
+    <link rel="shortcut icon" href="favicon.ico?ver=1.0.0">
+
+    <!-- set default share info -->
+    <meta property="og:title" content="LibraryMiner">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="css/vendor/vendor.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="scripts/modernizr.js"></script>
+</head>
+
+<body>
+    <!-- begin: loader -->
+    <div class="loader"></div>
+    <!-- end: loader -->
+    <!-- begin: main app -->
+    <header class="ng-cloak" ng-include=" 'templates/partials/header.html' "></header>
+
+    <div class="main view-change-animate ng-cloak" ui-view></div>
+
+    <footer class="ng-cloak" ng-include=" 'templates/partials/footer.html' "></footer>
+    <!-- end: main app -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
