@@ -96,3 +96,7 @@ website/data
 website/index.html
 website/scripts
 website/templates
+
+# 環境変数
+environments/environment.json
+src/scripts/data/environment.json
