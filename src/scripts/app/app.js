@@ -5,10 +5,10 @@ var angular = require('angular'),
     ngSanitize = require('angular-sanitize'),
     uiRouter = require('angular-ui-router'),
     mAnimations = require('./animations/_loader'),
-    mCtrls = require('./controllers/_loader');
+    mCtrls = require('./controllers/_loader'),
+   mServices = require('./services/_loader');
 /*
    mDirectives = require('./directives/_loader'),
-   mServices = require('./services/_loader');
    */
 
 /**
