@@ -8,7 +8,7 @@ var mServices = require('./_mServices'),
 var baseUrl = 'http://192.168.0.19:3000/data';
 
 mServices.factory('RecentProjectService', function ($resource) {
-    return $resource(baseUrl + "/recent_projects/index.json", {}, {
+    return $resource(baseUrl + "/recent_projects.json", {}, {
         query: { method: 'GET', params: {} }
     });
 });
