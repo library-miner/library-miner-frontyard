@@ -1,6 +1,6 @@
 'use strict';
 
-var load = require.context('./', false, /^[^_]+\.js$/);
+var load = require.context('./', false, /.+\.js$/);
 
 load.keys().forEach(load);
 
