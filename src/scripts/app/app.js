@@ -3,6 +3,7 @@
 var angular = require('angular'),
     ngTouch = require('angular-touch'),
     ngSanitize = require('angular-sanitize'),
+    ngResource = require('angular-resource'),
     uiRouter = require('angular-ui-router'),
     mAnimations = require('./animations/_loader'),
     mCtrls = require('./controllers/_loader'),
