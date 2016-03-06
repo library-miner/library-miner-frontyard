@@ -50,3 +50,12 @@ node -v
 rm -rf node_modules # 古いパッケージは消す
 npm install
 ```
+
+## ダミーデータの配置
+
+APIサーバを起動しなくても開発できるように、ダミーのjsonファイルをサーバに配置するには
+以下のコマンドを実行する
+
+```
+dummy/setup.sh
+```
