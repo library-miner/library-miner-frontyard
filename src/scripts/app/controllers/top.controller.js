@@ -1,11 +1,12 @@
 'use strict';
 
 var mCtrls = require('./_mCtrls'),
+    mServices = require('../services/_mServices'),
     debug = require('debug'),
     log = debug('Ctrls'),
     loader = require('../../utilities/loader');
 
-mCtrls.controller('TopController', function ($scope) {
+mCtrls.controller('TopController', ['$scope', 'RecentProjectService', function ($scope, RecentProjectService) {
     // 新着プロジェクト
     $scope.recentProjects = [
         {
@@ -39,4 +40,4 @@ mCtrls.controller('TopController', function ($scope) {
             'watchers_count': 30
         }
     ];
-});
+}]);
