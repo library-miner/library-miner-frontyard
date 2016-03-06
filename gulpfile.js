@@ -174,6 +174,17 @@ gulp.task('_clean', function () {
  *
  */
 
+// 本番環境では ENV=production gulp などでビルド
+var environment = process.env.ENV || 'development';
+var CONSTANT_JSON = 'environments/environment.json';
+
+gulp.task('setup-env', function () {
+    return gulp
+    .src(CONSTANT_JSON)
+    .pipe(gulp.dest("./src/scripts/data"))
+});
+
+
 // Build main css
 gulp.task('_css-build', function () {
     return gulp.src('src/scss/**/*.scss')
@@ -368,7 +379,7 @@ gulp.task('_js-lint', function () {
  *
  */
 
-gulp.task('_build', ['_css-build', '_css-vendor-build', '_templates-build', '_modernizr-build',
+gulp.task('_build', ['setup-env', '_css-build', '_css-vendor-build', '_templates-build', '_modernizr-build',
 '_root-files-build', '_data-build'], function () {
     notifier.notify({
         title: 'Gulp notification',
