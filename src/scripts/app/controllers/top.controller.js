@@ -7,7 +7,7 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls.controller('TopController', ['$scope', 'RecentProjectService', function ($scope, RecentProjectService) {
     // 新着プロジェクト
-    RecentProjectService.query({}, function(response) {
+    RecentProjectService.query({ page: 1, per: 10 }, function(response) {
         $scope.recentProjects = response.results;
     });
 }]);
