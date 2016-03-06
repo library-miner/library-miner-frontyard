@@ -36,6 +36,7 @@ angular
 
     'ngInject';
 
+    // Routingの定義
     $stateProvider
     .state('top', {
         url: '/',
