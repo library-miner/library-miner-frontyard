@@ -18,7 +18,7 @@ gulp
 ### 本番用build
 
 ```
-gulp build --dist
+ENV=production gulp build --dist
 ```
 
 website 以下に圧縮済みファイルが展開される
