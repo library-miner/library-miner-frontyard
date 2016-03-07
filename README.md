@@ -10,6 +10,7 @@
 ### 開発環境
 
 ```
+./setup.sh
 gulp
 ```
 
@@ -18,7 +19,7 @@ gulp
 ### 本番用build
 
 ```
-gulp build --dist
+ENV=production gulp build --dist
 ```
 
 website 以下に圧縮済みファイルが展開される
@@ -49,4 +50,13 @@ node -v
 ```
 rm -rf node_modules # 古いパッケージは消す
 npm install
+```
+
+## ダミーデータの配置
+
+APIサーバを起動しなくても開発できるように、ダミーのjsonファイルをサーバに配置するには
+以下のコマンドを実行する
+
+```
+./setup_dummy_response.sh
 ```

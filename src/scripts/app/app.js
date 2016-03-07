@@ -3,13 +3,15 @@
 var angular = require('angular'),
     ngTouch = require('angular-touch'),
     ngSanitize = require('angular-sanitize'),
+    ngResource = require('angular-resource'),
     uiRouter = require('angular-ui-router'),
     mAnimations = require('./animations/_loader'),
-    mCtrls = require('./controllers/_loader');
+    mCtrls = require('./controllers/_loader'),
+    mServices = require('./services/_loader');
+
 /*
-   mDirectives = require('./directives/_loader'),
-   mServices = require('./services/_loader');
-   */
+ *  mDirectives = require('./directives/_loader'),
+ */
 
 /**
  * Register main angular app
@@ -23,6 +25,8 @@ var dependencies = [
     uiRouter,
     mAnimations,
     mCtrls,
+    mServices,
+    ngResource,
     'ui.bootstrap'
 ];
 
@@ -32,6 +36,7 @@ angular
 
     'ngInject';
 
+    // Routingの定義
     $stateProvider
     .state('top', {
         url: '/',
