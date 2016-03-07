@@ -20,6 +20,32 @@
   <hr>
 
   <div class="row">
+    <div class="project-item" ng-repeat="project in projects">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+          <h3>
+            <a href="todo-{{ project.name }}">
+              {{ project.full_name }}
+            </a>
+          </h3>
+
+          <p>
+            {{ project.github_description }}
+          </p>
+          <p>
+            公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
+          </p>
+        </div>
+        <div class="col-md-5 additional-info">
+          <p>
+            Star : {{ project.stargazers_count }} / Watcher: {{ project.watchers_count }}
+          </p>
+          <p>
+            Owner: {{ project.owner_login_name }}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div><!-- /col-xs-12 -->
