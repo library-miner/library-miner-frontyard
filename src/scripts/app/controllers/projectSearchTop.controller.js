@@ -7,8 +7,10 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchTopController', ['$scope', 'RecentProjectService', function ($scope, RecentProjectService) {
-    // プロジェクト検索 TODO: ダミー
-    RecentProjectService.query({ page: 1, per: 10 }, function(response) {
-        $scope.recentProjects = response.results;
-    });
+    // プロジェクト検索
+    $scope.search = function() {
+        RecentProjectService.query({ page: 1, per: 10 }, function(response) {
+            $scope.projects = response.results;
+        });
+    };
 }]);
