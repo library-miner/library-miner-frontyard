@@ -45,7 +45,7 @@ angular
     })
     .state('project_search_top', {
         url: '/project_search',
-        templateUrl: 'templates/views/top.html',
+        templateUrl: 'templates/views/projectSearchTop.html',
         controller: 'ProjectSearchTopController'
     })
     ;
