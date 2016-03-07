@@ -8,7 +8,7 @@
     <form class="form-horizontal mt-10">
       <div class="form-group">
         <div class="col-md-10">
-          <input class="form-control" id="projectSearchKeyword" placeholder="Project or Library name">
+          <input class="form-control" id="projectSearchKeyword" ng-model="searchKeyword" placeholder="Project or Library name">
         </div>
         <div class="col-md-2">
           <button type="submit" ng-click="search()" class="btn btn-default">Search</button>

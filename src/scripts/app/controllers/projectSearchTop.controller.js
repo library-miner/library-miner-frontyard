@@ -6,11 +6,11 @@ var mCtrls = require('./_mCtrls'),
     loader = require('../../utilities/loader');
 
 mCtrls
-.controller('ProjectSearchTopController', ['$scope', 'RecentProjectService', function ($scope, RecentProjectService) {
+.controller('ProjectSearchTopController', ['$scope', 'ProjectSearchService', function ($scope, ProjectSearchService) {
     // プロジェクト検索
     $scope.search = function() {
-        RecentProjectService.query({ page: 1, per: 10 }, function(response) {
-            $scope.projects = response.results;
+        ProjectSearchService.query({ page: 1, per: 10, full_name: $scope.searchKeyword }, function(response) {
+            $scope.projects = response.items;
         });
     };
 }]);
