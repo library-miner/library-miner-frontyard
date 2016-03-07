@@ -11,7 +11,7 @@ mServices
 
     var baseUrl = environment.API_BASE;
 
-    return $resource(baseUrl + "/recent_projects.json", {}, {
+    return $resource(baseUrl + "/recent_created_projects.json", {}, {
         query: { method: 'GET', params: {} }
     });
 });
