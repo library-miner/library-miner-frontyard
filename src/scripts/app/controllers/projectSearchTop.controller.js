@@ -9,7 +9,9 @@ mCtrls
 .controller('ProjectSearchTopController', ['$scope', 'ProjectSearchService', function ($scope, ProjectSearchService) {
     // プロジェクト検索
     $scope.search = function() {
-        ProjectSearchService.query({ page: 1, per_page: 10, full_name: $scope.searchKeyword }, function(response) {
+        ProjectSearchService.query({
+            page: 1, per_page: 10, full_name: $scope.searchKeyword
+        }, function(response) {
             $scope.results = response;
         });
     };
