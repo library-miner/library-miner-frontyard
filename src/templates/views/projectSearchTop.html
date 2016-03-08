@@ -13,8 +13,6 @@
 
   </div>
 
-  <hr>
-
   <div class="row">
     <form class="form-horizontal mt-10">
       <div class="form-group">
@@ -33,7 +31,15 @@
   <div class="row">
     <!-- TODO: custom directiveによる共通化 -->
 
-    <div class="project-item" ng-repeat="project in projects">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <p class="search-result-count" ng-show="results.total_count">
+          {{ results.total_count }} 件のライブラリが見つかりました。
+        </p>
+      </div>
+    </div>
+
+    <div class="project-item" ng-repeat="project in results.items">
       <div class="row">
         <div class="col-md-6 col-md-offset-1">
           <h3>
@@ -48,6 +54,14 @@
           <p>
             公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
           </p>
+          <div class="mt-10">
+            <a class="btn btn-default" href="">
+              利用プロジェクト
+            </a>
+            <a class="btn btn-default" href="">
+              ライブラリ詳細
+            </a>
+          </div>
         </div>
         <div class="col-md-5 additional-info">
           <p>

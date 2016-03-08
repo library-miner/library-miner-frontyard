@@ -10,7 +10,7 @@ mCtrls
     // プロジェクト検索
     $scope.search = function() {
         ProjectSearchService.query({ page: 1, per: 10, full_name: $scope.searchKeyword }, function(response) {
-            $scope.projects = response.items;
+            $scope.results = response;
         });
     };
 }]);
