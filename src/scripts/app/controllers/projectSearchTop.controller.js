@@ -8,10 +8,12 @@ var mCtrls = require('./_mCtrls'),
 mCtrls
 .controller('ProjectSearchTopController', ['$scope', 'ProjectSearchService', function ($scope, ProjectSearchService) {
     // プロジェクト検索
+    $scope.currentPage = 1;
     $scope.search = function() {
         ProjectSearchService.query({
-            page: 1, per_page: 10, full_name: $scope.searchKeyword
+            page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword
         }, function(response) {
+            $scope.totalCount = response.total_count;
             $scope.results = response;
         });
     };

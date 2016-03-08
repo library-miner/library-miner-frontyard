@@ -32,12 +32,20 @@
     <!-- TODO: custom directiveによる共通化 -->
 
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <p class="search-result-count" ng-show="results.total_count">
-          {{ results.total_count }} 件のライブラリが見つかりました。
+      <div class="col-md-6 col-md-offset-1">
+        <p class="search-result-count" ng-show="totalCount">
+          {{ totalCount }} 件のライブラリが見つかりました。
         </p>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-1" ng-show="totalCount">
+        <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
+        </uib-pagination>
+      </div>
+    </div>
+
 
     <div class="project-item" ng-repeat="project in results.items">
       <div class="row">
@@ -73,6 +81,12 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-12 text-center" ng-show="totalCount">
+      <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
+      </uib-pagination>
+    </div>
+
   </div>
 
 </div><!-- /col-xs-12 -->
