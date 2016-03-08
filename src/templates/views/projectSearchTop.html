@@ -3,14 +3,23 @@
 <div class="col-xs-12">
 
   <div class="row">
-    <h2>プロジェクト検索 (見た目TODO)</h2>
+    <div class="col-md-12">
+      <h2>プロジェクト検索 Step1: ライブラリ選択</h2>
+      <p>
+        指定したライブラリを利用しているプロジェクトを探します。<br>
+        まずは探したいライブラリを選択してください。
+      </p>
+    </div>
 
+  </div>
+
+  <div class="row">
     <form class="form-horizontal mt-10">
       <div class="form-group">
-        <div class="col-md-10">
+        <div class="col-md-8 col-md-offset-1">
           <input class="form-control" id="projectSearchKeyword" ng-model="searchKeyword" placeholder="Project or Library name">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <button type="submit" ng-click="search()" class="btn btn-default">Search</button>
         </div>
       </div>
@@ -22,7 +31,29 @@
   <div class="row">
     <!-- TODO: custom directiveによる共通化 -->
 
-    <div class="project-item" ng-repeat="project in projects">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-1">
+        <p class="search-result-count" ng-show="totalCount">
+          {{ totalCount }} 件のライブラリが見つかりました。
+        </p>
+      </div>
+    </div>
+
+    <!-- TODO: 見た目調整 -->
+    <div class="row" ng-show="totalCount">
+      <div class="col-md-7 col-md-offset-1">
+        <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
+        </uib-pagination>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control">
+          <option value="1">stargazers_count:desc</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="project-item" ng-repeat="project in results.items">
       <div class="row">
         <div class="col-md-6 col-md-offset-1">
           <h3>
@@ -37,6 +68,14 @@
           <p>
             公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
           </p>
+          <div class="mt-10">
+            <a class="btn btn-default" href="">
+              利用プロジェクト
+            </a>
+            <a class="btn btn-default" href="">
+              ライブラリ詳細
+            </a>
+          </div>
         </div>
         <div class="col-md-5 additional-info">
           <p>
@@ -48,6 +87,12 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-12 text-center" ng-show="totalCount">
+      <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
+      </uib-pagination>
+    </div>
+
   </div>
 
 </div><!-- /col-xs-12 -->
