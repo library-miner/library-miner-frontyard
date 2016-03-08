@@ -39,10 +39,16 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6 col-md-offset-1" ng-show="totalCount">
+    <!-- TODO: 見た目調整 -->
+    <div class="row" ng-show="totalCount">
+      <div class="col-md-7 col-md-offset-1">
         <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
         </uib-pagination>
+      </div>
+      <div class="col-md-4">
+        <select class="form-control">
+          <option value="1">stargazers_count:desc</option>
+        </select>
       </div>
     </div>
 
