@@ -3,14 +3,25 @@
 <div class="col-xs-12">
 
   <div class="row">
-    <h2>プロジェクト検索 (見た目TODO)</h2>
+    <div class="col-md-12">
+      <h2>プロジェクト検索 Step1: ライブラリ選択</h2>
+      <p>
+        指定したライブラリを利用しているプロジェクトを探します。<br>
+        まずは探したいライブラリを選択してください。
+      </p>
+    </div>
 
+  </div>
+
+  <hr>
+
+  <div class="row">
     <form class="form-horizontal mt-10">
       <div class="form-group">
-        <div class="col-md-10">
+        <div class="col-md-8 col-md-offset-1">
           <input class="form-control" id="projectSearchKeyword" ng-model="searchKeyword" placeholder="Project or Library name">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <button type="submit" ng-click="search()" class="btn btn-default">Search</button>
         </div>
       </div>
