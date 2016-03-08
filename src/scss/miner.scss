@@ -30,6 +30,13 @@ p {
     font-weight: bold;
     font-size: 18px;
     color: #EEE;
+
+    a {
+      color: #EEE;
+    }
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
 
