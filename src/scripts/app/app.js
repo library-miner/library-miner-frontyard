@@ -43,6 +43,12 @@ angular
         templateUrl: 'templates/views/top.html',
         controller: 'TopController'
     })
+    .state('project_search_top', {
+        url: '/project_search',
+        templateUrl: 'templates/views/projectSearchTop.html',
+        controller: 'ProjectSearchTopController'
+    })
+    ;
 
     $urlRouterProvider.otherwise('/');
 
