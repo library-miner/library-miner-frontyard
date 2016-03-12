@@ -7,12 +7,11 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchTopController',
-            ['$scope', '$location', 'ProjectSearchService',
-                function ($scope, $location, ProjectSearchService) {
+            ['$scope', '$location', '$stateParams', 'ProjectSearchService',
+                function ($scope, $location, $stateParams, ProjectSearchService) {
     // プロジェクト検索
-    $scope.currentPage = 1;
     $scope.search = function() {
-        $location.search({q: $scope.searchKeyword});
+        $location.search({q: $scope.searchKeyword, page: $scope.currentPage});
 
         ProjectSearchService.query({
             page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword
@@ -21,4 +20,16 @@ mCtrls
             $scope.results = response;
         });
     };
+
+    var initialize = function() {
+        var searchKeyword = $location.search()["q"];
+        $scope.currentPage = $location.search()["page"];
+
+        if (searchKeyword) {
+            $scope.searchKeyword = searchKeyword;
+            $scope.totalCount = Number.MAX_VALUE; // Pageが常に1に戻ってしまう問題回避
+            $scope.search();
+        }
+    };
+    initialize();
 }]);
