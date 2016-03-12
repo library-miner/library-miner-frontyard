@@ -42,7 +42,7 @@
     <!-- TODO: 見た目調整 -->
     <div class="row" ng-show="totalCount">
       <div class="col-md-7 col-md-offset-1">
-        <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
+        <uib-pagination total-items="totalCount" max-size="6" ng-model="currentPage" ng-change="search()">
         </uib-pagination>
       </div>
       <div class="col-md-4">
@@ -89,7 +89,7 @@
     </div>
 
     <div class="col-md-12 text-center" ng-show="totalCount">
-      <uib-pagination total-items="totalCount" ng-model="currentPage" ng-change="search()">
+      <uib-pagination total-items="totalCount" max-size="6" ng-model="currentPage" ng-change="search()">
       </uib-pagination>
     </div>
 
