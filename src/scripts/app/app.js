@@ -50,7 +50,7 @@ angular
     })
     .state('project_search_using', {
         url: '/project_search/:id',
-        templateUrl: 'templates/views/projectSearchTop.html',
+        templateUrl: 'templates/views/projectSearchUsing.html',
         controller: 'ProjectSearchTopController'
     })
     ;
