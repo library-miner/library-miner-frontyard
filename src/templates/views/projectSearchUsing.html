@@ -4,11 +4,14 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h2>プロジェクト検索 / ライブラリ選択</h2>
+      <h2>利用プロジェクト検索</h2>
       <p>
-        指定したライブラリを利用しているプロジェクトを探します。<br>
-        まずは探したいライブラリを選択してください。
+        選択されたライブラリを利用しているプロジェクトを探します。
       </p>
+    </div>
+
+    <div class="col-md-12">
+      <label>選択されたライブラリ: </label> {{ projectName }}
     </div>
 
   </div>
@@ -57,7 +60,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-1">
           <h3>
-            <a ui-sref="project_search_using({ id: project.id })">
+            <a href="/projects/{{id}}">
               {{ project.full_name }}
             </a>
           </h3>
@@ -69,10 +72,7 @@
             公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
           </p>
           <div class="mt-10">
-            <a class="btn btn-default" href="">
-              利用プロジェクト
-            </a>
-            <a class="btn btn-default" href="">
+            <a class="btn btn-default" href="/projects/{{id}}">
               ライブラリ詳細
             </a>
           </div>
