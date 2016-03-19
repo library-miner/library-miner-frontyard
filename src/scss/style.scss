@@ -9,3 +9,7 @@
 @import 'miner_bootstrap_custom';
 @import 'bootstrap';
 @import 'miner';
+
+// font
+$fa-font-path: "../assets/fonts";
+@import 'node_modules/font-awesome/scss/font-awesome';
