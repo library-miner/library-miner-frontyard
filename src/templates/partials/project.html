@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-1">
+        <h3>
+            <a href="/projects/{{id}}">
+                {{ project.full_name }}
+            </a>
+        </h3>
+
+        <p>
+            {{ project.github_description }}
+        </p>
+        <p>
+            公開日:
+            {{ project.github_created_at }}
+            / 最終更新日:
+            {{ project.github_updated_at }}
+        </p>
+        <div class="mt-10">
+            <a class="btn btn-default" href="/projects/{{id}}">
+                ライブラリ詳細
+            </a>
+        </div>
+    </div>
+    <div class="col-md-5 additional-info">
+        <p>
+            Star :
+            {{ project.stargazers_count }}
+            / Watcher:
+            {{ project.watchers_count }}
+        </p>
+        <p>
+            Owner:
+            {{ project.owner_login_name }}
+        </p>
+    </div>
+</div>
