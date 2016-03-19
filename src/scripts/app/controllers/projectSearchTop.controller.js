@@ -28,8 +28,8 @@ mCtrls
         if (searchKeyword) {
             $scope.searchKeyword = searchKeyword;
             $scope.totalCount = Number.MAX_VALUE; // Pageが常に1に戻ってしまう問題回避
-            $scope.search();
         }
+        $scope.search();
     };
     initialize();
 }]);
