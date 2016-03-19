@@ -24,4 +24,9 @@ mCtrls
             $scope.results = response;
         });
     };
+
+    var initialize = function() {
+        $scope.search();
+    };
+    initialize();
 }]);
