@@ -16,9 +16,12 @@
             {{ project.github_updated_at }}
         </p>
         <div class="mt-10">
-            <a class="btn btn-default" href="/projects/{{id}}">
-                プロジェクト・ライブラリ 詳細
-            </a>
+          <a class="btn btn-default" href="/projects/{{id}}" ng-show="{{ project.project_type_id == 1 }}">
+            プロジェクト詳細
+          </a>
+          <a class="btn btn-default" href="/projects/{{id}}" ng-show="{{ project.project_type_id == 2 }}">
+            ライブラリ詳細
+          </a>
         </div>
     </div>
     <div class="col-md-5 additional-info">
