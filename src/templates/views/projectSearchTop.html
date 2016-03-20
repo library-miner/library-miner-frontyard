@@ -72,12 +72,18 @@
             公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
           </p>
           <div class="mt-10">
-            <a class="btn btn-default" href="">
-              利用プロジェクト
-            </a>
-            <a class="btn btn-default" href="">
-              ライブラリ詳細
-            </a>
+            <div ng-show="{{ project.project_type_id == 2 }}">
+              <a class="btn btn-default" href="/project_search/{{project.id}}?projectType=1">
+                利用プロジェクト
+              </a>
+              <a class="btn btn-default" href="/project_search/{{project.id}}?projectType=2">
+                利用ライブラリ
+              </a>
+              <a class="btn btn-default" ui-sref="project_detail({ id: project.id })">
+                ライブラリ詳細
+              </a>
+            </div>
+
           </div>
         </div>
         <div class="col-md-5 additional-info">
