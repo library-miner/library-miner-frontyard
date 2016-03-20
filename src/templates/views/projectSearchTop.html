@@ -4,9 +4,9 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h2>ライブラリからプロジェクトを検索</h2>
+      <h2>ライブラリからプロジェクト・ライブラリを検索</h2>
       <p>
-        指定したライブラリを利用しているプロジェクトを探します。<br>
+        指定したライブラリを利用しているプロジェクト・ライブラリを探します。<br>
         まずはライブラリを選択してください。
       </p>
     </div>
@@ -39,15 +39,16 @@
       </div>
     </div>
 
-    <!-- TODO: 見た目調整 -->
     <div class="row" ng-show="totalCount">
       <div class="col-md-7 col-md-offset-1">
         <uib-pagination total-items="totalCount" max-size="6" ng-model="currentPage" ng-change="search()">
         </uib-pagination>
       </div>
-      <div class="col-md-4">
-        <select class="form-control">
-          <option value="1">stargazers_count:desc</option>
+      <div class="col-md-3">
+        <select class="form-control" ng-model="sortOrder" ng-change="search()">
+          <option ng-repeat="valueNamePair in sortOrders" value="{{valueNamePair[0]}}">
+            {{ valueNamePair[1] }}
+          </option>
         </select>
       </div>
     </div>
@@ -72,12 +73,18 @@
             公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
           </p>
           <div class="mt-10">
-            <a class="btn btn-default" href="">
-              利用プロジェクト
-            </a>
-            <a class="btn btn-default" href="">
-              ライブラリ詳細
-            </a>
+            <div ng-show="{{ project.project_type_id == 2 }}">
+              <a class="btn btn-default" href="/project_search/{{project.id}}?projectTypeId=1">
+                利用プロジェクト
+              </a>
+              <a class="btn btn-default" href="/project_search/{{project.id}}?projectTypeId=2">
+                利用ライブラリ
+              </a>
+              <a class="btn btn-default" ui-sref="project_detail({ id: project.id })">
+                ライブラリ詳細
+              </a>
+            </div>
+
           </div>
         </div>
         <div class="col-md-5 additional-info">

@@ -12,14 +12,20 @@ mCtrls
 
     // プロジェクト検索 (ライブラリから検索)
     $scope.projectTypeId = Constants.ProjectType.library;
+    $scope.sortOrders = Constants.projectSortOrder;
+
     $scope.search = function() {
         $scope.loading = true;
 
-        $location.search({q: $scope.searchKeyword, page: $scope.currentPage});
+        $location.search({
+            q: $scope.searchKeyword, page: $scope.currentPage,
+            sortOrder: $scope.sortOrder
+        });
 
         ProjectSearchService.query({
             page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
-            project_type_id: $scope.projectTypeId
+            project_type_id: $scope.projectTypeId,
+            sort: $scope.sortOrder
         }, function(response) {
             $scope.loading = false;
             $scope.totalCount = response.total_count;
@@ -30,6 +36,7 @@ mCtrls
     var initialize = function() {
         var searchKeyword = $location.search()["q"];
         $scope.currentPage = $location.search()["page"];
+        $scope.sortOrder = $location.search()["sortOrder"] || "stargazers_count desc";
 
         if (searchKeyword) {
             $scope.searchKeyword = searchKeyword;

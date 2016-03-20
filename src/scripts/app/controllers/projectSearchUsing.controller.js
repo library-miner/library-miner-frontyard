@@ -7,12 +7,12 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchUsingController',
-            ['$scope', '$stateParams', 'ProjectSearchService', 'ProjectDetailService', 'Constants',
-                function ($scope, $stateParams, ProjectSearchService, ProjectDetailService, Constants) {
+            ['$scope', '$location', '$stateParams', 'ProjectSearchService', 'ProjectDetailService', 'Constants',
+                function ($scope, $location, $stateParams, ProjectSearchService, ProjectDetailService, Constants) {
     // プロジェクト検索
     $scope.id = $stateParams.id;
     $scope.currentPage = 1;
-    $scope.projectTypeId = Constants.ProjectType.project;
+    $scope.sortOrders = Constants.projectSortOrder;
 
     $scope.setupSelectLibrary = function() {
         ProjectDetailService.query({
@@ -24,10 +24,17 @@ mCtrls
 
     $scope.search = function() {
         $scope.loading = true;
+
+        $location.search({
+            q: $scope.searchKeyword, page: $scope.currentPage,
+            sortOrder: $scope.sortOrder, projectTypeId: $scope.projectTypeId
+        });
+
         ProjectSearchService.query({
             page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
             dependency_project_ids: $scope.id,
-            project_type_id: $scope.projectTypeId
+            project_type_id: $scope.projectTypeId,
+            sort: $scope.sortOrder
         }, function(response) {
             $scope.loading = false;
             $scope.totalCount = response.total_count;
@@ -36,6 +43,8 @@ mCtrls
     };
 
     var initialize = function() {
+        $scope.sortOrder = $location.search()["sortOrder"] || "stargazers_count desc";
+        $scope.projectTypeId = $location.search()["projectTypeId"] || Constants.ProjectType.all;
         $scope.setupSelectLibrary();
         $scope.search();
     };
