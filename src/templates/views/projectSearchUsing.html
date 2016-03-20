@@ -11,7 +11,8 @@
     </div>
 
     <div class="col-md-12">
-      <label>選択されたライブラリ: </label> {{ projectName }}
+      <label>選択されたライブラリ: </label>
+      <a href="/projects/{{ id }}">{{ projectName }}</a>
     </div>
 
   </div>
@@ -55,6 +56,9 @@
       </div>
     </div>
 
+    <div ng-show="loading" class="text-center loading-icon">
+      <i class="fa fa-spinner fa-pulse"></i>
+    </div>
 
     <div class="project-item" ng-repeat="project in results.items" ng-include="'templates/partials/project.html'">
     </div>

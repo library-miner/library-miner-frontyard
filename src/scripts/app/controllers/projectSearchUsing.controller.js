@@ -23,11 +23,13 @@ mCtrls
     }
 
     $scope.search = function() {
+        $scope.loading = true;
         ProjectSearchService.query({
             page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
             dependency_project_ids: $scope.id,
             project_type_id: $scope.projectTypeId
         }, function(response) {
+            $scope.loading = false;
             $scope.totalCount = response.total_count;
             $scope.results = response;
         });

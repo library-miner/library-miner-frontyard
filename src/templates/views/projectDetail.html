@@ -1,0 +1,169 @@
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+  <h1>
+    {{ project.full_name }}
+    <a href="{{ project.github_url }}" target="_blank">
+      <i class="fa fa-github"></i>
+    </a>
+  </h1>
+
+  <p>
+    {{ project.github_description }}
+  </p>
+
+  <hr>
+
+  <a ui-sref="project_search_using({ id: project.id })" class="mr-20" ng-show="project.project_type_id == 2">
+    <i class="fa fa-search"></i>
+    {{ project.name }} を利用しているプロジェクトを探す
+  </a>
+  <a href="TODO" ng-show="project.project_type_id == 2">
+    <i class="fa fa-search"></i>
+    {{ project.name }} を利用しているライブラリを探す
+  </a>
+
+
+  <h3 ng-show="project.project_type_id == 1">
+    プロジェクト詳細
+  </h3>
+  <h3 ng-show="project.project_type_id == 2">
+    ライブラリ詳細
+  </h3>
+
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered mt-20">
+    <colgroup> <col class="col-xs-1"> <col class="col-xs-7"> </colgroup>
+    <tbody>
+      <tr>
+        <th> Platform </th>
+        <td>
+          {{ project.language }}
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th> Owner </th>
+        <td>
+          {{ project.owner_login_name }}
+        </td>
+      </tr>
+      <tr>
+        <th> Github URL </th>
+        <td>
+          <a href="{{ project.github_url }}" target="_blank">
+            {{ project.github_url }}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <table class="table table-bordered mt-20">
+    <colgroup> <col class="col-xs-1"> <col class="col-xs-7"> </colgroup>
+    <tbody>
+      <tr>
+        <th> Star </th>
+        <td>
+          {{ project.stargazers_count }}
+        </td>
+      </tr>
+      <tr>
+        <th> Watcher / Fork </th>
+        <td>
+          {{ project.watchers_count }} /
+          {{ project.fork_count }}
+        </td>
+      </tr>
+      <tr>
+        <th> 最終更新日 </th>
+        <td>
+          {{ project.github_updated_at }}
+        </td>
+      </tr>
+      <tr>
+        <th> 作成日時 </th>
+        <td>
+          {{ project.github_created_at }}
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  </div>
+  </div>
+
+</div>
+
+<div class="col-md-12">
+  <uib-tabset active="active">
+    <uib-tab index="0" heading="利用ライブラリ">
+
+      <div class="container mt-10">
+      <div class="row">
+      <div class="col-md-12">
+        <div ng-show="loadingLibrary" class="text-center loading-icon">
+          <i class="fa fa-spinner fa-pulse"></i>
+        </div>
+
+        <p ng-show="project.project_type_id == 1">
+          このプロジェクトは {{ totalCount }} 件 の外部ライブラリを利用しています。
+        </p>
+        <p ng-show="project.project_type_id == 2">
+          このライブラリは {{ totalCount }} 件 の外部ライブラリを利用しています。
+        </p>
+      </div>
+
+      <div class="row" ng-show="totalCount">
+        <div class="col-md-7 col-md-offset-1">
+          <uib-pagination total-items="totalCount" max-size="6"
+            ng-model="currentPage" ng-change="searchLibraries(currentPage)">
+          </uib-pagination>
+        </div>
+        <div class="col-md-4">
+          <select class="form-control">
+            <option value="1">stargazers_count:desc</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-12">
+        <div class="project-item" ng-repeat="project in libraryResults"
+          ng-include="'templates/partials/project.html'">
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center" ng-show="totalCount">
+        <uib-pagination total-items="totalCount"
+          max-size="6" ng-model="currentPage" ng-change="searchLibraries(currentPage)">
+        </uib-pagination>
+      </div>
+
+      </div>
+      </div>
+
+    </uib-tab>
+    <uib-tab index="1" heading="Readme">
+
+      <div class="container mt-10">
+      <div class="row">
+      <div class="col-md-12">
+        <p ng-repeat="readme in project.project_readmes">
+          {{ readme.content }}
+        </p>
+      </div>
+      </div>
+      </div>
+
+    </uib-tab>
+  </uib-tabset>
+</div>
+
+</div>
+</div>

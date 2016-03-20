@@ -13,12 +13,15 @@ mCtrls
     // プロジェクト検索 (ライブラリから検索)
     $scope.projectTypeId = Constants.ProjectType.library;
     $scope.search = function() {
+        $scope.loading = true;
+
         $location.search({q: $scope.searchKeyword, page: $scope.currentPage});
 
         ProjectSearchService.query({
             page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
             project_type_id: $scope.projectTypeId
         }, function(response) {
+            $scope.loading = false;
             $scope.totalCount = response.total_count;
             $scope.results = response;
         });

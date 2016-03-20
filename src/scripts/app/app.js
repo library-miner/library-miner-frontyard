@@ -55,6 +55,12 @@ angular
         templateUrl: 'templates/views/projectSearchUsing.html',
         controller: 'ProjectSearchUsingController'
     })
+    .state('project_detail', {
+        url: '/projects/:id',
+        templateUrl: 'templates/views/projectDetail.html',
+        controller: 'ProjectDetailController'
+    })
+
     ;
 
     $urlRouterProvider.otherwise('/');
