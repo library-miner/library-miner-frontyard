@@ -14,11 +14,11 @@
 
   <hr>
 
-  <a ui-sref="project_search_using({ id: project.id })" class="mr-20" ng-show="project.project_type_id == 2">
+  <a href="/project_search/{{project.id}}?projectTypeId=1" class="mr-20" ng-show="project.project_type_id == 2">
     <i class="fa fa-search"></i>
     {{ project.name }} を利用しているプロジェクトを探す
   </a>
-  <a href="TODO" ng-show="project.project_type_id == 2">
+  <a href="/project_search/{{project.id}}?projectTypeId=2" ng-show="project.project_type_id == 2">
     <i class="fa fa-search"></i>
     {{ project.name }} を利用しているライブラリを探す
   </a>
