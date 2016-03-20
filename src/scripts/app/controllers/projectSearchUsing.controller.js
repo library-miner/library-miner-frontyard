@@ -7,11 +7,12 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchUsingController',
-            ['$scope', '$stateParams', 'ProjectSearchService', 'ProjectDetailService',
-                function ($scope, $stateParams, ProjectSearchService, ProjectDetailService) {
+            ['$scope', '$stateParams', 'ProjectSearchService', 'ProjectDetailService', 'Constants',
+                function ($scope, $stateParams, ProjectSearchService, ProjectDetailService, Constants) {
     // プロジェクト検索
     $scope.id = $stateParams.id;
     $scope.currentPage = 1;
+    $scope.projectTypeId = Constants.ProjectType.project;
 
     $scope.setupSelectLibrary = function() {
         ProjectDetailService.query({
@@ -24,7 +25,8 @@ mCtrls
     $scope.search = function() {
         ProjectSearchService.query({
             page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
-            dependency_project_ids: $scope.id
+            dependency_project_ids: $scope.id,
+            project_type_id: $scope.projectTypeId
         }, function(response) {
             $scope.totalCount = response.total_count;
             $scope.results = response;

@@ -7,7 +7,8 @@ var angular = require('angular'),
     uiRouter = require('angular-ui-router'),
     mAnimations = require('./animations/_loader'),
     mCtrls = require('./controllers/_loader'),
-    mServices = require('./services/_loader');
+    mServices = require('./services/_loader'),
+    mContstants = require('./constants/_loader');
 
 /*
  *  mDirectives = require('./directives/_loader'),
@@ -26,6 +27,7 @@ var dependencies = [
     mAnimations,
     mCtrls,
     mServices,
+    mContstants,
     ngResource,
     'ui.bootstrap'
 ];

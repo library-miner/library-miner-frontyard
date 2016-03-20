@@ -7,14 +7,17 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchTopController',
-            ['$scope', '$location', '$stateParams', 'ProjectSearchService',
-                function ($scope, $location, $stateParams, ProjectSearchService) {
-    // プロジェクト検索
+            ['$scope', '$location', '$stateParams', 'ProjectSearchService', 'Constants',
+                function ($scope, $location, $stateParams, ProjectSearchService, Constants) {
+
+    // プロジェクト検索 (ライブラリから検索)
+    $scope.projectTypeId = Constants.ProjectType.library;
     $scope.search = function() {
         $location.search({q: $scope.searchKeyword, page: $scope.currentPage});
 
         ProjectSearchService.query({
-            page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword
+            page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
+            project_type_id: $scope.projectTypeId
         }, function(response) {
             $scope.totalCount = response.total_count;
             $scope.results = response;
