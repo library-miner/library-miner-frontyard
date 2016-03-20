@@ -11,12 +11,16 @@ mCtrls
                 function ($scope, $stateParams, ProjectSearchService, ProjectDetailService, Constants) {
     $scope.id = $stateParams.id;
 
-    $scope.search = function() {
-        // something
+    $scope.setupSelectProject = function() {
+        ProjectDetailService.query({
+            id: $scope.id
+        }, function(response) {
+            $scope.project = response.project;
+        });
     };
 
     var initialize = function() {
-        $scope.search();
+        $scope.setupSelectProject();
     };
     initialize();
 }]);

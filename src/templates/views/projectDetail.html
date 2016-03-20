@@ -1,1 +1,93 @@
-Detail
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+  <h1>
+    {{ project.full_name }}
+    <a href="{{ project.github_url }}" target="_blank">
+      <i class="fa fa-github"></i>
+    </a>
+  </h1>
+
+  <p>
+    {{ project.github_description }}
+  </p>
+
+  <hr>
+
+  <h3 ng-show="project.project_type_id == 1">
+    プロジェクト詳細
+  </h3>
+  <h3 ng-show="project.project_type_id == 2">
+    ライブラリ詳細
+  </h3>
+
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6">
+    <table class="table table-bordered mt-20">
+    <colgroup> <col class="col-xs-1"> <col class="col-xs-7"> </colgroup>
+    <tbody>
+      <tr>
+        <th> Platform </th>
+        <td>
+          {{ project.language }}
+        </a>
+      </td>
+      </tr>
+      <tr>
+        <th> Owner </th>
+        <td>
+          {{ project.owner_login_name }}
+        </td>
+      </tr>
+      <tr>
+        <th> Github URL </th>
+        <td>
+          <a href="{{ project.github_url }}" target="_blank">
+            {{ project.github_url }}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <table class="table table-bordered mt-20">
+    <colgroup> <col class="col-xs-1"> <col class="col-xs-7"> </colgroup>
+    <tbody>
+      <tr>
+        <th> Star </th>
+        <td>
+          {{ project.stargazers_count }}
+        </td>
+      </tr>
+      <tr>
+        <th> Watcher / Fork </th>
+        <td>
+          {{ project.watchers_count }} /
+          {{ project.fork_count }}
+        </td>
+      </tr>
+      <tr>
+        <th> 最終更新日 </th>
+        <td>
+          {{ project.github_updated_at }}
+        </td>
+      </tr>
+      <tr>
+        <th> 作成日時 </th>
+        <td>
+          {{ project.github_created_at }}
+        </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  </div>
+  </div>
+
+</div>
+</div>
+</div>
