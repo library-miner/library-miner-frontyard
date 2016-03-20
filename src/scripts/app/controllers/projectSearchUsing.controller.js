@@ -13,7 +13,6 @@ mCtrls
     $scope.id = $stateParams.id;
     $scope.currentPage = 1;
     $scope.sortOrders = Constants.projectSortOrder;
-    $scope.projectTypeId = Constants.ProjectType.project;
 
     $scope.setupSelectLibrary = function() {
         ProjectDetailService.query({
@@ -45,6 +44,7 @@ mCtrls
 
     var initialize = function() {
         $scope.sortOrder = $location.search()["sortOrder"] || "stargazers_count desc";
+        $scope.projectTypeId = $location.search()["projectTypeId"] || Constants.ProjectType.project;
         $scope.setupSelectLibrary();
         $scope.search();
     };
