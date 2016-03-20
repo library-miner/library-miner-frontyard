@@ -7,11 +7,11 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchTopController',
-            ['$scope', '$location', '$stateParams', 'ProjectSearchService',
-                function ($scope, $location, $stateParams, ProjectSearchService) {
+            ['$scope', '$location', '$stateParams', 'ProjectSearchService', 'Constants',
+                function ($scope, $location, $stateParams, ProjectSearchService, Constants) {
 
     // プロジェクト検索 (ライブラリから検索)
-    $scope.projectTypeId = 2;
+    $scope.projectTypeId = Constants.ProjectType.library;
     $scope.search = function() {
         $location.search({q: $scope.searchKeyword, page: $scope.currentPage});
 
