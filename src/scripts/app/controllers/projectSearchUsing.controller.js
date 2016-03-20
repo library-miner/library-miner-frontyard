@@ -7,13 +7,19 @@ var mCtrls = require('./_mCtrls'),
 
 mCtrls
 .controller('ProjectSearchUsingController',
-            ['$scope', '$stateParams', 'ProjectSearchService',
-                function ($scope, $stateParams, ProjectSearchService) {
+            ['$scope', '$stateParams', 'ProjectSearchService', 'ProjectDetailService',
+                function ($scope, $stateParams, ProjectSearchService, ProjectDetailService) {
     // プロジェクト検索
     $scope.id = $stateParams.id;
     $scope.currentPage = 1;
-    // TODO: 直す
-    $scope.projectName = "TODO: " + $scope.id + " ここを取るAPIが必要";
+
+    $scope.setupSelectLibrary = function() {
+        ProjectDetailService.query({
+            id: $scope.id
+        }, function(response) {
+            $scope.projectName = response.project.full_name;
+        });
+    }
 
     $scope.search = function() {
         ProjectSearchService.query({
@@ -26,6 +32,7 @@ mCtrls
     };
 
     var initialize = function() {
+        $scope.setupSelectLibrary();
         $scope.search();
     };
     initialize();
