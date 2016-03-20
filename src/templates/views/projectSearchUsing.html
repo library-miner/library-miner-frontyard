@@ -43,15 +43,16 @@
       </div>
     </div>
 
-    <!-- TODO: 見た目調整 -->
     <div class="row" ng-show="totalCount">
       <div class="col-md-7 col-md-offset-1">
         <uib-pagination total-items="totalCount" max-size="6" ng-model="currentPage" ng-change="search()">
         </uib-pagination>
       </div>
-      <div class="col-md-4">
-        <select class="form-control">
-          <option value="1">stargazers_count:desc</option>
+      <div class="col-md-3">
+        <select class="form-control" ng-model="sortOrder" ng-change="search()">
+          <option ng-repeat="valueNamePair in sortOrders" value="{{valueNamePair[0]}}">
+            {{ valueNamePair[1] }}
+          </option>
         </select>
       </div>
     </div>
