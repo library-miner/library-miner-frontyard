@@ -44,7 +44,7 @@ mCtrls
 
     var initialize = function() {
         $scope.sortOrder = $location.search()["sortOrder"] || "stargazers_count desc";
-        $scope.projectTypeId = $location.search()["projectTypeId"] || Constants.ProjectType.project;
+        $scope.projectTypeId = $location.search()["projectTypeId"] || Constants.ProjectType.all;
         $scope.setupSelectLibrary();
         $scope.search();
     };

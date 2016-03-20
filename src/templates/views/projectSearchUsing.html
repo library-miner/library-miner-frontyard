@@ -4,9 +4,9 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h2>利用プロジェクト検索</h2>
+      <h2>利用プロジェクト・ライブラリ検索</h2>
       <p>
-        選択されたライブラリを利用しているプロジェクトを探します。
+        選択されたライブラリを利用しているプロジェクト・ライブラリを探します。
       </p>
     </div>
 
@@ -20,10 +20,20 @@
   <div class="row">
     <form class="form-horizontal mt-10">
       <div class="form-group">
-        <div class="col-md-8 col-md-offset-1">
+        <div class="col-md-4 col-md-offset-1">
+          <label></label>
+          <select class="form-control mt-5" ng-model="projectTypeId" ng-change="search()">
+            <option value=""> 絞込: プロジェクト・ライブラリ </option>
+            <option value="1"> 絞込: プロジェクトのみ </option>
+            <option value="2"> 絞込: ライブラリのみ </option>
+          </select>
+        </div>
+        <div class="col-md-7"> </div>
+
+        <div class="col-md-8 col-md-offset-1 mt-10">
           <input class="form-control" id="projectSearchKeyword" ng-model="searchKeyword" placeholder="Project or Library name">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mt-10">
           <button type="submit" ng-click="search()" class="btn btn-default">Search</button>
         </div>
       </div>
@@ -38,7 +48,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-1">
         <p class="search-result-count" ng-show="totalCount">
-          {{ totalCount }} 件のプロジェクトが見つかりました。
+          {{ totalCount }} 件のプロジェクト・ライブラリが見つかりました。
         </p>
       </div>
     </div>

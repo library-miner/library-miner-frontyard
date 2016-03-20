@@ -5,6 +5,7 @@ var mConstants = require('./_mConstants'),
 
 mConstants.constant('Constants', {
     ProjectType: {
+        all: null,
         project: 1,
         library: 2
     },
