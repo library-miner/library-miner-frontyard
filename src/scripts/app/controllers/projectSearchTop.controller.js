@@ -9,12 +9,15 @@ mCtrls
 .controller('ProjectSearchTopController',
             ['$scope', '$location', '$stateParams', 'ProjectSearchService',
                 function ($scope, $location, $stateParams, ProjectSearchService) {
-    // プロジェクト検索
+
+    // プロジェクト検索 (ライブラリから検索)
+    $scope.projectTypeId = 2;
     $scope.search = function() {
         $location.search({q: $scope.searchKeyword, page: $scope.currentPage});
 
         ProjectSearchService.query({
-            page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword
+            page: $scope.currentPage, per_page: 10, full_name: $scope.searchKeyword,
+            project_type_id: $scope.projectTypeId
         }, function(response) {
             $scope.totalCount = response.total_count;
             $scope.results = response;
