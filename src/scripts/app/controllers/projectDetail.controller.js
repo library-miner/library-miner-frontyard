@@ -10,6 +10,7 @@ mCtrls
             ['$scope', '$stateParams', 'ProjectSearchService', 'ProjectDetailService', 'Constants',
                 function ($scope, $stateParams, ProjectSearchService, ProjectDetailService, Constants) {
     $scope.id = $stateParams.id;
+    $scope.sortOrders = Constants.projectSortOrder;
 
     // プロジェクト詳細検索
     $scope.setupSelectProject = function() {
@@ -21,11 +22,14 @@ mCtrls
     };
 
     // 利用ライブラリ検索
-    $scope.searchLibraries = function(page) {
+    $scope.searchLibraries = function(page, sortOrder) {
         $scope.currentPage = page;
+        $scope.sortOrder = sortOrder;
         $scope.loadingLibrary = true;
+
         ProjectSearchService.query({
-            page: $scope.currentPage, per_page: 10, using_project_id: $scope.id
+            page: $scope.currentPage, per_page: 10, using_project_id: $scope.id,
+            sort: $scope.sortOrder
         }, function(response) {
             $scope.loadingLibrary = false;
             $scope.totalCount = response.total_count;
@@ -34,6 +38,7 @@ mCtrls
     }
 
     var initialize = function() {
+        $scope.sortOrder = "stargazers_count desc";
         $scope.setupSelectProject();
         $scope.searchLibraries();
     };

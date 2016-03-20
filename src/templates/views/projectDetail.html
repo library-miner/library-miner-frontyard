@@ -125,13 +125,15 @@
             ng-model="currentPage" ng-change="searchLibraries(currentPage)">
           </uib-pagination>
         </div>
-        <div class="col-md-4">
-          <select class="form-control">
-            <option value="1">stargazers_count:desc</option>
+
+        <div class="col-md-3">
+          <select class="form-control" ng-model="sortOrder" ng-change="searchLibraries(currentPage, sortOrder)">
+            <option ng-repeat="valueNamePair in sortOrders" value="{{valueNamePair[0]}}">
+              {{ valueNamePair[1] }}
+            </option>
           </select>
         </div>
       </div>
-
 
       <div class="col-md-12">
         <div class="project-item" ng-repeat="project in libraryResults"
