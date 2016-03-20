@@ -107,7 +107,12 @@
       <div class="container mt-10">
       <div class="row">
       <div class="col-md-12">
-        作ります
+        <p ng-show="project.project_type_id == 1">
+          このプロジェクトは 100 件 の外部ライブラリを利用しています。
+        </p>
+        <p ng-show="project.project_type_id == 2">
+          このライブラリは 100 件 の外部ライブラリを利用しています。
+        </p>
       </div>
       </div>
       </div>
