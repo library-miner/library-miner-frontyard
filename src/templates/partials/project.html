@@ -19,6 +19,12 @@
           <a class="btn btn-default" href="/projects/{{project.id}}" ng-show="{{ project.project_type_id == 1 }}">
             プロジェクト詳細
           </a>
+          <a class="btn btn-default" href="/project_search/{{project.id}}?projectTypeId=1" ng-show="{{ project.project_type_id == 2 }}">
+            利用プロジェクト
+          </a>
+          <a class="btn btn-default" href="/project_search/{{project.id}}?projectTypeId=2" ng-show="{{ project.project_type_id == 2 }}">
+            利用ライブラリ
+          </a>
           <a class="btn btn-default" href="/projects/{{project.id}}" ng-show="{{ project.project_type_id == 2 }}">
             ライブラリ詳細
           </a>
