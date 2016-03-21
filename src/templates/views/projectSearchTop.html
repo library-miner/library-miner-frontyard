@@ -70,7 +70,7 @@
             {{ project.github_description }}
           </p>
           <p>
-            公開日: {{ project.github_created_at }} / 最終更新日: {{ project.github_updated_at }}
+            公開日: {{ project.github_created_at | date: 'medium' }} / 最終更新日: {{ project.github_updated_at | date: 'medium' }}
           </p>
           <div class="mt-10">
             <div ng-show="{{ project.project_type_id == 2 }}">

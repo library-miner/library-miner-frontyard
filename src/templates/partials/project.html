@@ -11,9 +11,9 @@
         </p>
         <p>
             公開日:
-            {{ project.github_created_at }}
+            {{ project.github_created_at | date: 'medium'}}
             / 最終更新日:
-            {{ project.github_updated_at }}
+            {{ project.github_updated_at | date: 'medium'}}
         </p>
         <div class="mt-10">
           <a class="btn btn-default" href="/projects/{{project.id}}" ng-show="{{ project.project_type_id == 1 }}">
