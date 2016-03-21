@@ -8,23 +8,23 @@ var mCtrls = require('./_mCtrls'),
 mCtrls
     .controller('TopController', [
         '$scope',
-        'RecentProjectService',
-        'RecentLibraryService',
-        function($scope, RecentProjectService, RecentLibraryService) {
+        'RecentCreatedProjectService',
+        'RecentCreatedLibraryService',
+        function($scope, RecentCreatedProjectService, RecentCreatedLibraryService) {
             // 新着プロジェクト
-            RecentProjectService.query({
+            RecentCreatedProjectService.query({
                 page: 1,
                 per: 10
             }, function(response) {
-                $scope.recentProjects = response.results;
+                $scope.recentCreatedProjects = response.results;
             });
 
             // 新着ライブラリ
-            RecentLibraryService.query({
+            RecentCreatedLibraryService.query({
                 page: 1,
                 per: 10
             }, function(response) {
-                $scope.recentLibraries = response.results;
+                $scope.recentCreatedLibraries = response.results;
             });
         }
     ]);
