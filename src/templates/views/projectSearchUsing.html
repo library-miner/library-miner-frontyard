@@ -2,7 +2,7 @@
 <div class="row">
 <div class="col-xs-12">
 
-  <div class="row">
+  <div class="row" ng-show="{{ nameSearchFlag == false }}">
     <div class="col-md-12">
       <h2>利用プロジェクト・ライブラリ検索</h2>
       <p>
@@ -15,6 +15,15 @@
       <a href="/projects/{{ id }}">{{ projectName }}</a>
     </div>
 
+  </div>
+
+  <div class="row" ng-show="{{ nameSearchFlag == true }}">
+    <div class="col-md-12">
+      <h2>プロジェクト・ライブラリ名で検索</h2>
+      <p>
+        名前からプロジェクト・ライブラリを探します。
+      </p>
+    </div>
   </div>
 
   <div class="row">

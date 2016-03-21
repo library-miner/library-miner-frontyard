@@ -14,12 +14,24 @@ mCtrls
     $scope.currentPage = 1;
     $scope.sortOrders = Constants.projectSortOrder;
 
-    $scope.setupSelectLibrary = function() {
-        ProjectDetailService.query({
-            id: $scope.id
-        }, function(response) {
-            $scope.projectName = response.project.full_name;
-        });
+    // プロジェクト/ライブラリ名で検索から来たか判定
+    $scope.nameSearchJudge = function(path){
+        if (path == "/project_search_name/"){
+            return true;
+        }else{
+            return false;
+        }
+    };
+
+    $scope.setupSelectLibrary = function(nameSearchFlag) {
+        // プロジェクト/ライブラリ名で検索の場合は選択されたライブラリ部分は取得しない
+        if (nameSearchFlag == false) {
+            ProjectDetailService.query({
+                id: $scope.id
+            }, function(response) {
+                $scope.projectName = response.project.full_name;
+            });
+        }
     }
 
     $scope.search = function() {
@@ -43,9 +55,12 @@ mCtrls
     };
 
     var initialize = function() {
+        // プロジェクト/ライブラリ名で検索から来たか判定
+        $scope.nameSearchFlag = $scope.nameSearchJudge($location.path());
+
         $scope.sortOrder = $location.search()["sortOrder"] || "stargazers_count desc";
         $scope.projectTypeId = $location.search()["projectTypeId"] || Constants.ProjectType.all;
-        $scope.setupSelectLibrary();
+        $scope.setupSelectLibrary($scope.nameSearchFlag);
         $scope.search();
     };
     initialize();
