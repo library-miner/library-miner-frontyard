@@ -33,37 +33,42 @@ var dependencies = [
 ];
 
 angular
-.module('app', dependencies)
-.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
+    .module('app', dependencies)
+    .config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 
-    'ngInject';
+        'ngInject';
 
-    // Routingの定義
-    $stateProvider
-    .state('top', {
-        url: '/',
-        templateUrl: 'templates/views/top.html',
-        controller: 'TopController'
-    })
-    .state('project_search_top', {
-        url: '/project_search',
-        templateUrl: 'templates/views/projectSearchTop.html',
-        controller: 'ProjectSearchTopController'
-    })
-    .state('project_search_using', {
-        url: '/project_search/:id',
-        templateUrl: 'templates/views/projectSearchUsing.html',
-        controller: 'ProjectSearchUsingController'
-    })
-    .state('project_detail', {
-        url: '/projects/:id',
-        templateUrl: 'templates/views/projectDetail.html',
-        controller: 'ProjectDetailController'
-    })
+        // Routingの定義
+        $stateProvider
+            .state('top', {
+                url: '/',
+                templateUrl: 'templates/views/top.html',
+                controller: 'TopController'
+            })
+            .state('project_search_top', {
+                url: '/project_search',
+                templateUrl: 'templates/views/projectSearchTop.html',
+                controller: 'ProjectSearchTopController'
+            })
+            .state('project_search_using', {
+                url: '/project_search/:id',
+                templateUrl: 'templates/views/projectSearchUsing.html',
+                controller: 'ProjectSearchUsingController'
+            })
+            .state('project_detail', {
+                url: '/projects/:id',
+                templateUrl: 'templates/views/projectDetail.html',
+                controller: 'ProjectDetailController'
+            })
+            .state('popular_project', {
+                url: '/popular_project',
+                templateUrl: 'templates/views/popularProject.html',
+                controller: 'PopularProjectController'
+            })
 
-    ;
+        ;
 
-    $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/');
 
-    $locationProvider.html5Mode(true);
-});
+        $locationProvider.html5Mode(true);
+    });
