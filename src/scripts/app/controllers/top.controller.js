@@ -10,7 +10,13 @@ mCtrls
         '$scope',
         'RecentCreatedProjectService',
         'RecentCreatedLibraryService',
-        function($scope, RecentCreatedProjectService, RecentCreatedLibraryService) {
+        'RecentUpdatedProjectService',
+        'RecentUpdatedLibraryService',
+        function($scope,
+            RecentCreatedProjectService,
+            RecentCreatedLibraryService,
+            RecentUpdatedProjectService,
+            RecentUpdatedLibraryService) {
             // 新着プロジェクト
             RecentCreatedProjectService.query({
                 page: 1,
@@ -25,6 +31,22 @@ mCtrls
                 per: 10
             }, function(response) {
                 $scope.recentCreatedLibraries = response.results;
+            });
+
+            // 更新プロジェクト
+            RecentUpdatedProjectService.query({
+                page: 1,
+                per: 10
+            }, function(response) {
+                $scope.recentUpdatedProjects = response.results;
+            });
+
+            // 更新ライブラリ
+            RecentUpdatedLibraryService.query({
+                page: 1,
+                per: 10
+            }, function(response) {
+                $scope.recentUpdatedLibraries = response.results;
             });
         }
     ]);
