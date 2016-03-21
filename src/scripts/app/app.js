@@ -55,6 +55,11 @@ angular
                 templateUrl: 'templates/views/projectSearchUsing.html',
                 controller: 'ProjectSearchUsingController'
             })
+            .state('project_search_name', {
+                url: '/project_search_name/',
+                templateUrl: 'templates/views/projectSearchUsing.html',
+                controller: 'ProjectSearchUsingController'
+            })
             .state('project_detail', {
                 url: '/projects/:id',
                 templateUrl: 'templates/views/projectDetail.html',
