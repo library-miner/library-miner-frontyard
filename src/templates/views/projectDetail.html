@@ -82,13 +82,13 @@
       <tr>
         <th> 最終更新日 </th>
         <td>
-          {{ project.github_updated_at }}
+          {{ project.github_updated_at | date: 'medium'}}
         </td>
       </tr>
       <tr>
         <th> 作成日時 </th>
         <td>
-          {{ project.github_created_at }}
+          {{ project.github_created_at | date: 'medium'}}
         </td>
       </tr>
     </tbody>
