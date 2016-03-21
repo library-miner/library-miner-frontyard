@@ -8,6 +8,7 @@ var angular = require('angular'),
     mAnimations = require('./animations/_loader'),
     mCtrls = require('./controllers/_loader'),
     mServices = require('./services/_loader'),
+    mFilters = require('./filters/_loader'),
     mContstants = require('./constants/_loader');
 
 /*
@@ -27,6 +28,7 @@ var dependencies = [
     mAnimations,
     mCtrls,
     mServices,
+    mFilters,
     mContstants,
     ngResource,
     'ui.bootstrap'
