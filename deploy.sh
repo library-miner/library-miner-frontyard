@@ -1,3 +1,4 @@
+npm install
 touch environments/environment.json
 cp environments/{environment.json,environment.json.backup}
 cp environments/{environment.json.production,environment.json}
