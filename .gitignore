@@ -99,4 +99,5 @@ website/templates
 
 # 環境変数
 environments/environment.json
+environments/environment.json.backup
 src/scripts/data/environment.json
