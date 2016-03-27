@@ -42,6 +42,20 @@ p {
   }
 }
 
+.navbar-link {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #EEE;
+
+  a {
+    font-size: 14px;
+    color: #EEE !important;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 // footer
 .normal-footer{
   padding-top: 20px;
