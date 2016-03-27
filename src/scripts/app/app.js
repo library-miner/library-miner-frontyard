@@ -20,6 +20,7 @@ var angular = require('angular'),
  */
 
 require('angular-bootstrap-npm');
+require('updatemeta');
 
 var dependencies = [
     ngTouch,
@@ -31,6 +32,7 @@ var dependencies = [
     mFilters,
     mContstants,
     ngResource,
+    'updateMeta',
     'ui.bootstrap'
 ];
 

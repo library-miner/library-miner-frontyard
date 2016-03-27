@@ -6,7 +6,8 @@ module.exports = {
         alias: {
             jquery: 'jquery/dist/jquery.js',
             bootstrap: 'bootstrap-sass/assets/javascripts/bootstrap.js',
-            createjs: 'PreloadJS/lib/preloadjs-0.6.2.combined.js'
+            createjs: 'PreloadJS/lib/preloadjs-0.6.2.combined.js',
+            updatemeta: 'angular-update-meta/dist/update-meta.js'
         }
     },
     module: {
